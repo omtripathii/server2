@@ -1,7 +1,10 @@
 const express = require('express');
 const serverless = require('serverless-http');
+const cors = require('cors');
 
 const app = express();
+// app.use(cors({ origin: 'https://frabjous-chaja-0268fd.netlify.app' })); // Replace with your frontend URL
+app.use(cors())
 app.use(express.json());
 
 app.post('/bfhl', (req, res) => {
@@ -29,3 +32,4 @@ app.get('/bfhl', (req, res) => {
 });
 
 module.exports.handler = serverless(app);
+
